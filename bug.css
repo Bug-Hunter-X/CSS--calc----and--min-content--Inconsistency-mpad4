@@ -1,0 +1,12 @@
+The following CSS code snippet demonstrates an unusual bug related to unexpected behavior when using `calc()` with percentages and `min-content`:
+
+```css
+div {
+  width: calc(50% - 10px);
+  min-width: min-content;
+}
+```
+
+In this scenario, the `min-width: min-content;` declaration might not work as expected. While `min-content` is supposed to allow the element to shrink to its intrinsic content size if necessary, the combination with `calc(50% - 10px)` can lead to inconsistencies. The element might not shrink to its minimum size if the calculated width (50% - 10px) exceeds the `min-content` value.
+
+This behavior is subtle and might not always manifest, depending on the parent container's width and the content's size within the div. It highlights the potential complexities when combining different sizing mechanisms in CSS.
